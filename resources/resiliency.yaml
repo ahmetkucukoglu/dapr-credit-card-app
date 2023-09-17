@@ -1,0 +1,22 @@
+apiVersion: dapr.io/v1alpha1
+kind: Resiliency
+metadata:
+  name: resiliency
+spec:
+  policies:
+    retries:
+      simpleRertry:
+        policy: constant
+        duration: 5s
+        maxRetries: 3
+
+    circuitBreakers:
+      simpleCB:
+        maxRequests: 1
+        timeout: 5s 
+        trip: consecutiveFailures >= 3
+  targets:
+    apps:
+      lcs:
+        retry: simpleRertry
+        circuitBreaker: simpleCB

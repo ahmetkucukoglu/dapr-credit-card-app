@@ -1,0 +1,94 @@
+version: "3.6"
+
+services:
+
+  placement:
+    image: daprio/dapr:1.11.0
+    command: ["./placement", 
+      "-port", "50000",
+      "-log-level", "debug"]
+    ports:
+      - 50000:50000
+
+  ccs:
+    image: ccs
+    build:
+      context: .
+      dockerfile: src/Services/CreditCardService/Dockerfile
+    ports:
+      - 5238:80
+    depends_on:
+      - placement
+
+  ccs-dapr:
+    image: daprio/dapr:1.11.0
+    command: ["./daprd", 
+      "-app-id", "ccs", 
+      "-app-port", "80", 
+      "-app-protocol", "http", 
+      "-resources-path", "./resources", 
+      "-config", "./dapr/config.yml",
+      "-placement-host-address", "placement:50000",
+      "-log-level", "debug"]
+    volumes:
+      - ./resources/:/resources
+      - ./dapr/:/dapr
+    depends_on:
+      - ccs
+    network_mode: service:ccs
+
+  lcs:
+    image: lcs
+    build:
+      context: .
+      dockerfile: src/Services/LimitControlService/Dockerfile
+    ports:
+      - 5239:80
+    depends_on:
+      - placement
+
+  lcs-dapr:
+    image: daprio/dapr:1.11.0
+    command: ["./daprd", 
+      "-app-id", "lcs", 
+      "-app-port", "80", 
+      "-app-protocol", "http",
+      "-resources-path", "./resources",
+      "-config", "./dapr/config.yml",
+      "-placement-host-address", "placement:50000",
+      "-log-level", "debug"]
+    volumes:
+      - ./resources/:/resources
+      - ./dapr/:/dapr
+    depends_on:
+      - lcs
+    network_mode: service:lcs
+
+  css:
+    environment:
+      - DAPR_GRPC_PORT=4001
+    image: css
+    build:
+      context: .
+      dockerfile: src/Services/StatementService/Dockerfile
+    ports:
+      - 5240:80
+    depends_on:
+      - placement
+
+  css-dapr:
+    image: daprio/dapr:1.11.0
+    command: ["./daprd", 
+      "-app-id", "css", 
+      "-app-port", "80", 
+      "-dapr-grpc-port", "4001",
+      "-resources-path", "./resources",
+      "-config", "./dapr/config.yml", 
+      "-placement-host-address", "placement:50000",
+      "-log-level", "debug"]
+    volumes:
+      - ./resources/:/resources
+      - ./dapr/:/dapr
+    depends_on:
+      - css
+    network_mode: service:css

@@ -1,0 +1,25 @@
+version: 1
+common:
+  resourcesPath: ./resources
+apps:
+  - appID: ccs
+    appDirPath: src/Services/CreditCardService
+    configFilePath: ../../../dapr/config.yml
+    logLevel: debug
+    appPort: 5242
+    daprHTTPPort: 3400
+    command: ["dotnet","run"]
+  - appID: lcs
+    appDirPath: src/Services/LimitControlService
+    configFilePath: ../../../dapr/config.yml
+    logLevel: debug
+    appPort: 5243
+    daprHTTPPort: 3500
+    command: ["dotnet","run"]
+  - appID: css
+    appDirPath: src/Services/StatementService
+    configFilePath: ../../../dapr/config.yml
+    logLevel: debug
+    appPort: 5244
+    daprHTTPPort: 3600
+    command: ["dotnet","run"]

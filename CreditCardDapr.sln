@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C05BB941-FD80-44B2-A927-65DD234E9F92}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{C82D90FF-2781-4BA0-B3ED-42A3EC33064A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCardService", "src\Services\CreditCardService\CreditCardService.csproj", "{5974EBB5-410F-47D8-9CDC-D066862A3A70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LimitControlService", "src\Services\LimitControlService\LimitControlService.csproj", "{58350877-F326-44C6-906D-385FED07EB0D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{A1AB0364-8782-4558-BACD-DBD0CB0DBC42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedModels", "src\Shared\SharedModels\SharedModels.csproj", "{2700B064-E872-4AE4-8DB2-9B60396F7A4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatementService", "src\Services\StatementService\StatementService.csproj", "{C50E733C-64E3-41D2-ABB9-F5044A8F1915}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C82D90FF-2781-4BA0-B3ED-42A3EC33064A} = {C05BB941-FD80-44B2-A927-65DD234E9F92}
+		{5974EBB5-410F-47D8-9CDC-D066862A3A70} = {C82D90FF-2781-4BA0-B3ED-42A3EC33064A}
+		{58350877-F326-44C6-906D-385FED07EB0D} = {C82D90FF-2781-4BA0-B3ED-42A3EC33064A}
+		{A1AB0364-8782-4558-BACD-DBD0CB0DBC42} = {C05BB941-FD80-44B2-A927-65DD234E9F92}
+		{2700B064-E872-4AE4-8DB2-9B60396F7A4C} = {A1AB0364-8782-4558-BACD-DBD0CB0DBC42}
+		{C50E733C-64E3-41D2-ABB9-F5044A8F1915} = {C82D90FF-2781-4BA0-B3ED-42A3EC33064A}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5974EBB5-410F-47D8-9CDC-D066862A3A70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5974EBB5-410F-47D8-9CDC-D066862A3A70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5974EBB5-410F-47D8-9CDC-D066862A3A70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5974EBB5-410F-47D8-9CDC-D066862A3A70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58350877-F326-44C6-906D-385FED07EB0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58350877-F326-44C6-906D-385FED07EB0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58350877-F326-44C6-906D-385FED07EB0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58350877-F326-44C6-906D-385FED07EB0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2700B064-E872-4AE4-8DB2-9B60396F7A4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2700B064-E872-4AE4-8DB2-9B60396F7A4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2700B064-E872-4AE4-8DB2-9B60396F7A4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2700B064-E872-4AE4-8DB2-9B60396F7A4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C50E733C-64E3-41D2-ABB9-F5044A8F1915}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C50E733C-64E3-41D2-ABB9-F5044A8F1915}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C50E733C-64E3-41D2-ABB9-F5044A8F1915}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C50E733C-64E3-41D2-ABB9-F5044A8F1915}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

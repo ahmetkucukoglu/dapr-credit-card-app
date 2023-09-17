@@ -1,0 +1,14 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: bindings_sendgrid
+spec:
+  type: bindings.twilio.sendgrid
+  version: v1
+  metadata:
+  - name: emailFrom
+    value: "admin@ahmetkucukoglu.com"
+  - name: emailFromName
+    value: "Ahmet KÜÇÜKOĞLU"
+  - name: apiKey
+    value: "SG.Gxxx"
